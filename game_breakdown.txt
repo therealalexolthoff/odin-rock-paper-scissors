@@ -1,0 +1,23 @@
+General Planning Questions:
+
+
+1. Does it have a user interface?
+   Yes, there must be 3 buttons users can click to decide which item they want to play with. In addition, there should be a text display that alternates between telling the user who won and telling the user to start a new game. Finally, there needs to be a way to play another game for users, which can be a button towards the bottom of the screen that allows them to do this.
+
+2. What inputs will your program have? Will the user enter data or will you get input from somewhere else?
+
+The only input is user clicks buttons to indicate what attack they want to choose (Rock, Paper, or Scissors) and a button click to indicate playing another round of the game.
+
+The other input is a randomly generated choice from the computer about what attack to make.
+
+3. What’s the desired output?
+
+The desired output is to show the computer choice and player choice, as well as which player won, the score, and the request to the player to play again or not.
+
+4. Given your inputs, what are the steps necessary to return the desired output?
+
+First, the computer input and the player input need to be compared.
+
+Second, if there is a clear winner, then they need to be selected as such and a message needs to be made ready to indicate that they won. If there is a tie, then a tie message needs to be generated.
+
+Third, the message needs to be displayed in the UI, along with images of the player's choice and the computer's choice.
