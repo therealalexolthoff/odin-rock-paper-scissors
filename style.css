@@ -1,3 +1,6 @@
+main {
+    display: none;
+}
 h1,h2 {
     text-align: center;
 }
@@ -18,4 +21,21 @@ ul > li {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#buttons > button {
+    margin: 0 10px;
+    font-size: 2rem;
+}
+#nameSaveBox {
+    text-align: center;
+}
+#nameSaveBox > * {
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin: 0 10px;
 }
