@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header id="introSection">
         <h1>Ready to play Rock, Paper, Scissors? Save your name to get started!</h1>
         <div id="nameSaveBox">
             <input type="text" name="name" id="nameInput" placeholder="Your Name">
@@ -15,19 +15,19 @@
         </div>
        
     </header>
-    <main>
+    <main id="gameUi">
         <section id="stats">
             <h1>Rock, Paper, Scissors</h1>
             <ul>
-                <li id="playerScore">Player Score: <span id="playerData"></span></li>
+                <li id="playerScore"><span id="playerData"></span></li>
                 <li id="computerScore">Computer Score: <span id="computerData"></span></li>
             </ul>
         </section>
         <section id="gameResults">
             <h2 id="resultText"></h2>
             <div id="images">
-                <img src="" alt="">
-                <img src="" alt="">
+                <img id="playerImg" src="" alt="">
+                <img id="computerImg" src="" alt="">
             </div>
         </section>
         <section id="buttons">
@@ -36,6 +36,6 @@
             <button id="scissors">Scissors</button>
         </section>
     </main>
-    <!-- <script src="script.js"></script> -->
+    <script src="game.js"></script>
 </body>
 </html>
