@@ -35,7 +35,9 @@ function createConstants(playerName) {
 document.getElementById('saveName').addEventListener('click', () => {
     gameSection.style.display = 'block'
     const playerName = document.getElementById("nameInput").value
-    document.getElementById('playerScore').innerText = `${playerName} Score:`
+    const playerNameNode = document.createElement('span')
+    playerNameNode.innerText = `${playerName} Score:`
+    document.getElementById('playerScore').insertBefore(playerNameNode, document.getElementById('playerScoreData')) 
     introSection.style.display = 'none'
     holder = createConstants(playerName)
 })
@@ -56,27 +58,21 @@ function updateImages(image1,image2) {
 }
 
 function assignScore(data,states){
-    switch (data){
-        case states[0]: {
-            let playerData = document.getElementById('playerData')
-            console.log(playerData)
+       if (data === states[0]) {
+            let playerData = document.getElementById('playerScoreData').innerHTML
             if (playerData) {
                const newScore =  parseInt(playerData) + 1
-               playerData.innerHTML = newScore
+               document.getElementById('playerScoreData').innerHTML = newScore
             }
             else {
-                document.getElementById('playerData').innerHTML = 1
+                document.getElementById('playerScoreData').innerHTML = 1
             }
-            console.log('running')
-           let currentScore = parseInt(document.getElementById('playerData').innerHTML)
-           currentScore += 1
-           document.getElementById('playerData').innerHTML = currentScore
         }
-        case states[2]: {
+        else if (data === states[2]) {
             let computerData = document.getElementById('computerData').innerHTML
             if (computerData) {
                const newScore =  parseInt(computerData) + 1
-               computerData.innerHTML = newScore
+               document.getElementById('computerData').innerHTML = newScore
             }
             else {
                 document.getElementById('computerData').innerHTML = 1
@@ -85,20 +81,14 @@ function assignScore(data,states){
             
             // document.getElementById('computerData').innerHTML = computerScore
          }
-         default: {
-            console.log(
-                'tie'
-            )
-         }
     }
-}
 
 function playGame(playerChoice) {
     const [CHOICES, STATES ,RESULTS] = holder
-    const randNum =  Math.floor(Math.random() * 4) 
+    const randNum =  Math.floor(Math.random() * 3) 
     const compChoice = CHOICES[randNum] 
     console.log(compChoice)
-    console.log(RESULTS[compChoice])
+    console.log(playerChoice)
     const result = RESULTS[compChoice][playerChoice]
     document.getElementById('resultText').innerText = result
     assignScore(result,STATES)
