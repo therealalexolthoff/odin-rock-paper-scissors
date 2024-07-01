@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link href="https://cdn.skypack.dev/sanitize.css" rel="stylesheet" />
+    <link href="normalize.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header id="introSection">
+        <div id="introSpacer"></div>
         <h1>Ready to play Rock, Paper, Scissors? Save your name to get started!</h1>
         <div id="nameSaveBox">
             <input type="text" name="name" id="nameInput" placeholder="Your Name">
@@ -25,11 +26,11 @@
             </ul>
         </section>
         <section id="gameResults">
-            <h2 id="resultText"></h2>
             <div id="images">
                 <img id="playerImg" src="" alt="">
                 <img id="computerImg" src="" alt="">
             </div>
+            <h2 id="resultText"></h2>
         </section>
         <section id="buttons">
             <button id="rock">Rock</button>

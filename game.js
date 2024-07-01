@@ -2,7 +2,10 @@
 const gameSection = document.getElementById('gameUi')
 const introSection = document.getElementById('introSection')
 let holder
-
+const scores = {
+    playerScore : 0,
+    computerScore: 0 
+}
 
 // Creates all required strings and conditions
 function createConstants(playerName) {
@@ -30,10 +33,8 @@ function createConstants(playerName) {
 }
 
 // Event listeners to control the flow of the experience
-
-
 document.getElementById('saveName').addEventListener('click', () => {
-    gameSection.style.display = 'block'
+    gameSection.style.display = 'flex'
     const playerName = document.getElementById("nameInput").value
     const playerNameNode = document.createElement('span')
     playerNameNode.innerText = `${playerName} Score:`
@@ -53,8 +54,8 @@ document.getElementById('scissors').addEventListener('click', ()=> {
 } )
 
 function updateImages(image1,image2) {
-    document.getElementById('playerImg').src = `./${image1}.jpg`
-    document.getElementById('computerImg').src = `./${image2}.jpg`
+    document.getElementById('playerImg').src = `./${image1}.png`
+    document.getElementById('computerImg').src = `./${image2}.png`
 }
 
 function assignScore(data,states){
@@ -63,6 +64,7 @@ function assignScore(data,states){
             if (playerData) {
                const newScore =  parseInt(playerData) + 1
                document.getElementById('playerScoreData').innerHTML = newScore
+               scores.playerScore = newScore
             }
             else {
                 document.getElementById('playerScoreData').innerHTML = 1
@@ -73,33 +75,37 @@ function assignScore(data,states){
             if (computerData) {
                const newScore =  parseInt(computerData) + 1
                document.getElementById('computerData').innerHTML = newScore
+               scores.computerScore = newScore
             }
             else {
                 document.getElementById('computerData').innerHTML = 1
             }
-            // computerScore += 1
-            
-            // document.getElementById('computerData').innerHTML = computerScore
          }
     }
+
+function gameOver(){
+    const playerWonStatus = scores.playerScore > 4 ? true : false
+    const computerWonStatus = scores.computerScore > 4 ? true : false
+    if (playerWonStatus || computerWonStatus) {
+        document.querySelector('main').style.display = 'none'
+        const gameOverMessage = document.createElement('h1')
+        const message = playerWonStatus ? 'You won!' : 'The computer won!'
+        gameOverMessage.innerHTML = message
+        gameOverMessage.style.textAlign = 'center'
+        document.querySelector('body').appendChild(gameOverMessage)
+    }
+}
 
 function playGame(playerChoice) {
     const [CHOICES, STATES ,RESULTS] = holder
     const randNum =  Math.floor(Math.random() * 3) 
     const compChoice = CHOICES[randNum] 
-    console.log(compChoice)
-    console.log(playerChoice)
     const result = RESULTS[compChoice][playerChoice]
     document.getElementById('resultText').innerText = result
+    updateImages(playerChoice,compChoice)
     assignScore(result,STATES)
+    gameOver()
 }
-// while (stillPlaying === true) {
-    
-//     const randNum =  Math.floor(Math.random() * 3) 
-//     const compChoice = CHOICES[randNum] 
-//     const result = RESULTS[compChoice][playerChoice]
-//     alert(result)
-//     const playAgain = prompt("Want to play again?")
-//     stillPlaying = playAgain === "yes"
-// }  
+
+
 

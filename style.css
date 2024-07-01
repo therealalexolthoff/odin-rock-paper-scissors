@@ -1,5 +1,18 @@
+
+#introSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: inherit;
+}
+#introSpacer{
+   height: 20rem;
+}
 main {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 h1,h2 {
     text-align: center;
@@ -9,13 +22,14 @@ h1 {
 }
 ul{
     list-style: none; 
-    text-align: center;   
+    text-align: center; 
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 ul > li {
-    margin-left: 2%;
-    margin-right: 2%;
     font-size: 2rem;
-    display: inline;
 }
 #images{
     display: flex;
@@ -38,4 +52,9 @@ ul > li {
     padding: 1rem;
     font-size: 1.2rem;
     margin: 0 10px;
+}
+#gameUi {
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
 }
